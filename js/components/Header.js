@@ -1,0 +1,37 @@
+import { SECTIONS } from '../modules/timeline.js';
+
+const renderArrowIcon = (direction) => `
+  <svg class="icon-arrow dir-${direction}" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M16 6.70703L16.7071 5.99992L17.4142 6.70703L16.7071 7.41414L16 6.70703ZM1 7.70703C0.447715 7.70703 0 7.25932 0 6.70703C0 6.15475 0.447715 5.70703 1 5.70703V6.70703V7.70703ZM10 0.707031L10.7071 -7.55191e-05L16.7071 5.99992L16 6.70703L15.2929 7.41414L9.29289 1.41414L10 0.707031ZM16 6.70703L16.7071 7.41414L10.7071 13.4141L10 12.707L9.29289 11.9999L15.2929 5.99992L16 6.70703ZM16 6.70703V7.70703H1V6.70703V5.70703H16V6.70703Z" fill="currentColor"/>
+  </svg>
+`;
+
+export function renderHeader() {
+  const navItems = SECTIONS.map((section, index) => `
+    <li class="nav-item">
+      <a href="#${section.id}" 
+         class="nav-pill ${index === 0 ? 'active' : ''}" 
+         data-section="${section.id}">
+        ${section.instrument}
+      </a>
+    </li>
+  `).join('');
+
+  return `
+    <header class="nav-header">
+      <button class="nav-arrow left btn-circle" id="navPrev" aria-label="Scroll navigation left" hidden>
+        ${renderArrowIcon('left')}
+      </button>
+
+      <nav class="nav-container" aria-label="Orchestral Entrances Navigation">
+        <ol class="nav-list" id="navList">
+          ${navItems}
+        </ol>
+      </nav>
+
+      <button class="nav-arrow right btn-circle" id="navNext" aria-label="Scroll navigation right">
+        ${renderArrowIcon('right')}
+      </button>
+    </header>
+  `;
+}
