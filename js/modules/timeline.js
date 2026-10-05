@@ -16,139 +16,155 @@ export const STEMS = {
 
 export const SECTIONS = [
   {
-    id: "snare-drum",
+    id: "snare-ostinato",
     instrument: "Snare Drum",
     title: "Rhythmic Ostinato",
     time: 0,
     featuredStems: [STEMS.PERCUSSION],
-    description: "The persistent C-major two-bar rhythm on snare drum that continues across all 15 minutes."
+    description: "The persistent C-major rhythm on snare drum that continues across the entire 15-minute composition."
   },
   {
     id: "solo-flute",
     instrument: "Solo Flute",
     title: "Theme A — Entrance 1",
-    time: 14,
+    time: 8, // 0:08
     featuredStems: [STEMS.FLUTES_PICCOLOS],
-    description: "The main theme introduced softly in C major in the low register of a solo flute."
+    description: "Theme A introduced quietly in C major in the low register of a solo flute."
   },
   {
     id: "solo-clarinet",
     instrument: "Solo Clarinet",
     title: "Theme A — Entrance 2",
-    time: 50,
+    time: 58, // 0:58
     featuredStems: [STEMS.CLARINETS],
-    description: "Clarinet takes over Theme A with the same quiet dynamics over the snare drum."
+    description: "Clarinet takes over Theme A in its warm middle register over the quiet snare drum."
   },
   {
     id: "bassoon",
     instrument: "Bassoon",
     title: "Theme B — Entrance 3",
-    time: 86,
+    time: 108, // 1:48
     featuredStems: [STEMS.BASSOONS],
-    description: "Bassoon introduces Theme B, introducing subtle jazzy syncopation and chromatic motion."
+    description: "Bassoon introduces Theme B, featuring subtle syncopation and chromatic motion."
   },
   {
     id: "eb-clarinet",
     instrument: "E♭ Clarinet",
     title: "Theme B — Entrance 4",
-    time: 122,
+    time: 157, // 2:37
     featuredStems: [STEMS.CLARINETS],
-    description: "High E♭ clarinet plays Theme B in a bright, piercing register."
+    description: "The high E♭ clarinet plays Theme B in a bright, piercing upper register."
   },
   {
     id: "oboe-damore",
     instrument: "Oboe d'Amore",
     title: "Theme A — Entrance 5",
-    time: 158,
+    time: 207, // 3:27
     featuredStems: [STEMS.OBOES],
-    description: "Theme A returns played on the rare Oboe d'Amore, giving a dark, warm tone."
+    description: "Theme A returns played on the rare Oboe d'Amore, giving a dark, mellow timbre."
   },
   {
     id: "trumpet-flute",
     instrument: "Trumpet & Flute",
     title: "Theme A — Entrance 6",
-    time: 194,
+    time: 257, // 4:17
     featuredStems: [STEMS.TRUMPETS, STEMS.FLUTES_PICCOLOS],
-    description: "Muted trumpet and flute combine in octaves to recreate a unique organ-like timbre."
+    description: "Muted trumpet paired with low flute in octaves, creating a unique organ-like tone color."
   },
   {
     id: "tenor-sax",
     instrument: "Tenor Saxophone",
     title: "Theme B — Entrance 7",
-    time: 230,
+    time: 307, // 5:07
     featuredStems: [STEMS.SAXOPHONE],
-    description: "Tenor saxophone introduces orchestral saxophones to French classical music."
+    description: "Tenor saxophone introduces jazz-influenced saxophone timbres into the French orchestral tradition."
   },
   {
     id: "soprano-sax",
     instrument: "Soprano Saxophone",
     title: "Theme B — Entrance 8",
-    time: 266,
+    time: 357, // 5:57
     featuredStems: [STEMS.SAXOPHONE],
-    description: "Soprano saxophone takes over Theme B in a soaring upper register."
+    description: "Soprano saxophone takes over Theme B in a soaring, vocal upper register."
   },
   {
-    id: "horn-celesta",
-    instrument: "Horn, Celesta & Harp",
+    id: "horn-celesta-piccolo",
+    instrument: "Horn, Celesta & Piccolos",
     title: "Theme A — Entrance 9",
-    time: 302,
+    time: 407, // 6:47
     featuredStems: [STEMS.HORNS, STEMS.CELESTA_HARP, STEMS.FLUTES_PICCOLOS],
-    description: "French Horn paired with Celesta, Harp, and Flutes creating overtone harmonics."
+    description: "Horn played with Celesta, Harp, and Piccolos in parallel fifths and thirds, synthesizing overtone harmonics."
   },
   {
-    id: "oboes-clarinets",
-    instrument: "Oboes & Clarinets",
+    id: "woodwinds-group-1",
+    instrument: "Oboes, Clarinets & English Horn",
     title: "Theme A — Entrance 10",
-    time: 338,
+    time: 456, // 7:36
     featuredStems: [STEMS.OBOES, STEMS.CLARINETS],
-    description: "Combined woodwind section building density and harmonic complexity."
+    description: "Combined double-reed and single-reed woodwinds building harmonic density."
   },
   {
-    id: "trombone",
+    id: "trombone-solo",
     instrument: "Trombone",
     title: "Theme B — Entrance 11",
-    time: 374,
+    time: 506, // 8:26
     featuredStems: [STEMS.TROMBONES_TUBA],
-    description: "Famous glissando trombone solo delivering a bold, dramatic presentation of Theme B."
+    description: "The famous glissando trombone solo delivering a bold presentation of Theme B."
   },
   {
-    id: "woodwinds-sax",
-    instrument: "Woodwinds & Sax",
+    id: "woodwinds-sax-group",
+    instrument: "Woodwinds & Saxophones",
     title: "Theme B — Entrance 12",
-    time: 410,
-    featuredStems: [STEMS.FLUTES_PICCOLOS, STEMS.OBOES, STEMS.CLARINETS, STEMS.BASSOONS, STEMS.SAXOPHONE],
-    description: "Full woodwind section combined with saxophones as volume continues to rise."
+    time: 556, // 9:16
+    featuredStems: [STEMS.FLUTES_PICCOLOS, STEMS.OBOES, STEMS.CLARINETS, STEMS.SAXOPHONE],
+    description: "Full woodwind section combined with saxophones as global volume continues to rise."
   },
   {
-    id: "violins-flute",
-    instrument: "Violins & Flute",
+    id: "violins-woodwinds",
+    instrument: "Violins & Woodwinds",
     title: "Theme A — Entrance 13",
-    time: 446,
-    featuredStems: [STEMS.VIOLINS, STEMS.FLUTES_PICCOLOS],
-    description: "First violins join the theme melody, bringing bowing dynamics into the mix."
+    time: 606, // 10:06
+    featuredStems: [STEMS.VIOLINS, STEMS.FLUTES_PICCOLOS, STEMS.OBOES, STEMS.CLARINETS],
+    description: "First violins join the melody, bringing string bowing dynamics into the orchestration."
   },
   {
-    id: "full-strings",
-    instrument: "Full Strings",
+    id: "violins-woodwinds-sax",
+    instrument: "Violins, Woodwinds & Sax",
     title: "Theme A — Entrance 14",
-    time: 482,
-    featuredStems: [STEMS.VIOLINS, STEMS.VIOLAS, STEMS.CELLOS_BASSES],
-    description: "Entire string section plays Theme A in rich unison and octave harmonies."
+    time: 656, // 10:56
+    featuredStems: [STEMS.VIOLINS, STEMS.FLUTES_PICCOLOS, STEMS.OBOES, STEMS.SAXOPHONE],
+    description: "Violins, woodwinds, and saxophones play Theme A in rich unison harmonies."
   },
   {
-    id: "full-brass",
-    instrument: "Full Brass",
+    id: "full-strings-brass",
+    instrument: "Strings, Trumpet & Woodwinds",
     title: "Theme B — Entrance 15",
-    time: 518,
-    featuredStems: [STEMS.TRUMPETS, STEMS.HORNS, STEMS.TROMBONES_TUBA],
-    description: "Trumpets, horns, and trombones take full command of Theme B."
+    time: 706, // 11:46
+    featuredStems: [STEMS.VIOLINS, STEMS.VIOLAS, STEMS.CELLOS_BASSES, STEMS.TRUMPETS, STEMS.FLUTES_PICCOLOS, STEMS.OBOES, STEMS.SAXOPHONE],
+    description: "Full string section with trumpet leading Theme B as the piece nears its climax."
   },
   {
-    id: "tutti",
-    instrument: "Full Orchestra",
-    title: "Tutti & Key Modulation",
-    time: 554,
-    featuredStems: Object.values(STEMS), // All 13 stems featured at climax
-    description: "The dramatic modulation from C major to E major leading into the roaring climax."
+    id: "full-orchestra-building",
+    instrument: "Strings, Trombones & Woodwinds",
+    title: "Theme B — Entrance 16",
+    time: 756, // 12:36
+    featuredStems: [STEMS.VIOLINS, STEMS.VIOLAS, STEMS.CELLOS_BASSES, STEMS.FLUTES_PICCOLOS, STEMS.OBOES, STEMS.CLARINETS, STEMS.SAXOPHONE, STEMS.TROMBONES_TUBA],
+    description: "Heavy low brass and strings join to drive the crescendo forward."
+  },
+  {
+    id: "brass-ensemble-theme",
+    instrument: "Full Brass, Strings & Reeds",
+    title: "Theme A — Entrance 17",
+    time: 805, // 13:25
+    featuredStems: [STEMS.VIOLINS, STEMS.VIOLAS, STEMS.CELLOS_BASSES, STEMS.TRUMPETS, STEMS.HORNS, STEMS.SAXOPHONE, STEMS.FLUTES_PICCOLOS],
+    description: "Full brass and strings in powerful unison leading directly to the key modulation."
+  },
+  {
+    id: "tutti-climax",
+    instrument: "Full Orchestra (Tutti)",
+    title: "Entrance 18 — Key Modulation & Climax",
+    time: 855, // 14:15
+    featuredStems: Object.values(STEMS),
+    description: "The modulation from C major to E major where tam-tam, cymbals, and full brass roar to the final crash."
   }
 ];

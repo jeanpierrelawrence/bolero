@@ -1,15 +1,14 @@
 export class AudioEngine {
   constructor() {
     this.ctx = null;
-    this.buffers = new Map();   // stemPath -> AudioBuffer
-    this.gainNodes = new Map(); // stemPath -> GainNode
-    this.sources = new Map();   // stemPath -> AudioBufferSourceNode
+    this.buffers = new Map();
+    this.gainNodes = new Map();
+    this.sources = new Map();
     this.startTime = 0;
     this.pausedAt = 0;
     this.isPlaying = false;
   }
 
-  // Initialize AudioContext on user gesture to bypass browser autoplay rules
   initContext() {
     if (!this.ctx) {
       const AudioContextClass = window.AudioContext || window.webkitAudioContext;
@@ -20,13 +19,9 @@ export class AudioEngine {
     }
   }
 
-  /**
-   * Accepts either the STEMS object, SECTIONS array, or an array of URLs.
-   */
   async loadStems(stemsInput, onProgress) {
     this.initContext();
 
-    // Dynamically extract unique stem URLs regardless of input structure
     let uniqueStems = [];
     if (Array.isArray(stemsInput)) {
       uniqueStems = [...new Set(stemsInput.flatMap(s => 
@@ -56,7 +51,6 @@ export class AudioEngine {
 
           this.buffers.set(stemPath, audioBuffer);
 
-          // Route each stem through an individual GainNode connected to destination
           const gainNode = this.ctx.createGain();
           gainNode.gain.setValueAtTime(1.0, this.ctx.currentTime);
           gainNode.connect(this.ctx.destination);
@@ -73,7 +67,6 @@ export class AudioEngine {
     );
   }
 
-  // Play all loaded stems synchronously at a specific time offset (in seconds)
   play(offset = this.pausedAt) {
     if (this.buffers.size === 0) {
       console.warn("AudioEngine: Cannot play because no audio buffers are loaded.");
@@ -90,7 +83,6 @@ export class AudioEngine {
       source.buffer = buffer;
       source.connect(this.gainNodes.get(stemPath));
       
-      // Sample-aligned playback start
       source.start(0, offset);
       this.sources.set(stemPath, source);
     });
@@ -98,7 +90,6 @@ export class AudioEngine {
     this.isPlaying = true;
   }
 
-  // Pause playback and preserve location
   pause() {
     if (!this.isPlaying) return;
 
@@ -110,7 +101,6 @@ export class AudioEngine {
     this.isPlaying = false;
   }
 
-  // Jump to a specific timestamp in seconds
   seek(seconds) {
     const wasPlaying = this.isPlaying;
     if (this.isPlaying) this.pause();
@@ -118,7 +108,6 @@ export class AudioEngine {
     if (wasPlaying) this.play(seconds);
   }
 
-  // Real-time volume/isolation control for individual stems (0.0 to 1.0)
   setStemVolume(stemPath, volume, fadeDuration = 0.05) {
     const gainNode = this.gainNodes.get(stemPath);
     if (gainNode) {
@@ -129,7 +118,6 @@ export class AudioEngine {
     }
   }
 
-  // Returns current playback offset in seconds
   getCurrentTime() {
     if (!this.isPlaying) return this.pausedAt;
     return this.ctx.currentTime - this.startTime;
