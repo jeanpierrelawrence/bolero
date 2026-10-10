@@ -1,0 +1,106 @@
+body.is-loading,
+html.is-loading {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--bg-main, #0a0a0a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md, 1.5rem);
+  transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s,
+              visibility 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s;
+}
+
+.preloader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md, 1.5rem);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.preloader-overlay.fade-out .preloader-content {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  filter: blur(6px);
+}
+
+.preloader-title {
+  font-family: var(--font-heading, sans-serif);
+  font-size: var(--text-hero, clamp(2.5rem, 6vw, 5rem));
+  color: var(--text-primary, #ffffff);
+  letter-spacing: var(--ls-tight, -0.02em);
+  line-height: var(--lh-tight, 1.1);
+  margin: 0;
+}
+
+.preloader-progress-container {
+  width: 100%;
+  max-width: 480px;
+  height: 2px;
+  background-color: var(--border-subtle, rgba(255, 255, 255, 0.1));
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.preloader-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--text-primary);
+  transition: width 0.3s ease-out;
+}
+
+.preloader-status-row {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.btn-preloader-start {
+  margin-top: var(--space-sm);
+  padding: 0.8rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+  background-color: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  letter-spacing: 0.1em;
+  cursor: not-allowed;
+  transition: all 0.4s ease;
+}
+
+.btn-preloader-start.ready {
+  border-color: var(--text-primary);
+  background-color: var(--text-primary);
+  color: var(--bg-main);
+  cursor: pointer;
+}
+
+.btn-preloader-start.ready:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}

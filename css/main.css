@@ -254,3 +254,53 @@ a {
 .scroll-cue:hover {
   color: var(--bg-main);
 }
+
+.hero-mb-meta {
+  margin: 1.5rem 0 2rem;
+  width: 100%;
+  max-width: 680px;
+}
+
+/* Swiss Spec Sheet Layout */
+.meta-spec-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12));
+  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12));
+  margin: 0;
+  gap: 1.5rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.spec-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #666666);
+}
+
+.spec-value {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--text-primary, #ffffff);
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .meta-spec-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.85rem 0;
+  }
+}

@@ -11,6 +11,11 @@ export function renderHero() {
         <h1 class="hero-title">Boléro</h1>
         <p class="hero-subtitle">Maurice Ravel</p>
       </div>
+
+      <div class="hero-mb-meta" id="heroMbMeta">
+        <!-- MusicBrainz lives here -->
+      </div>
+
       <button id="playBtn" class="btn-primary" type="button">
         ENTER AUDITORIUM
       </button>
@@ -19,5 +24,31 @@ export function renderHero() {
         ${renderArrowIcon('down')}
       </a>
     </section>
+  `;
+}
+
+export function updateHeroMusicBrainzMeta(data) {
+  const container = document.getElementById('heroMbMeta');
+  if (!container || !data) return;
+
+  container.innerHTML = `
+    <dl class="meta-spec-bar">
+      <div class="spec-item">
+        <dt class="spec-label">Work</dt>
+        <dd class="spec-value">${data.title}</dd>
+      </div>
+      <div class="spec-item">
+        <dt class="spec-label">Type</dt>
+        <dd class="spec-value">${data.type}</dd>
+      </div>
+      <div class="spec-item">
+        <dt class="spec-label">ISWC</dt>
+        <dd class="spec-value">${data.iswc}</dd>
+      </div>
+      <div class="spec-item">
+        <dt class="spec-label">MBID</dt>
+        <dd class="spec-value">${data.mbid.substring(0, 8)}</dd>
+      </div>
+    </dl>
   `;
 }
